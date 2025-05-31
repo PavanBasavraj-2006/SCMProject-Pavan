@@ -139,3 +139,58 @@
     left: 42px;
     animation: leg-run-rev 0.7s ease-in-out infinite;
   }
+
+  /* Running animation for limbs */
+  @keyframes arm-run {
+    0% { transform: rotate(30deg); }
+    50% { transform: rotate(-30deg); }
+    100% { transform: rotate(30deg); }
+  }
+  @keyframes arm-run-rev {
+    0% { transform: rotate(-30deg); }
+    50% { transform: rotate(30deg); }
+    100% { transform: rotate(-30deg); }
+  }
+  @keyframes leg-run {
+    0% { transform: rotate(-25deg); }
+    50% { transform: rotate(25deg); }
+    100% { transform: rotate(-25deg); }
+  }
+  @keyframes leg-run-rev {
+    0% { transform: rotate(25deg); }
+    50% { transform: rotate(-25deg); }
+    100% { transform: rotate(25deg); }
+  }
+
+  /* Jumping state - arms and legs roate */
+  #man.jump .arm-left {
+    animation: arm-jump-left 0.7s forwards;
+  }
+  #man.jump .arm-right {
+    animation: arm-jump-right 0.7s forwards;
+  }
+  #man.jump .leg-left {
+    animation: leg-jump-left 0.7s forwards;
+  }
+  #man.jump .leg-right {
+    animation: leg-jump-right 0.7s forwards;
+  }
+
+  @keyframes arm-jump-left {
+    0% { transform: rotate(30deg); }
+    100% { transform: rotate(55deg); }
+  }
+  @keyframes arm-jump-right {
+    0% { transform: rotate(-30deg); }
+    100% { transform: rotate(-55deg); }
+  }
+  @keyframes leg-jump-left {
+    0% { transform: rotate(-25deg); }
+    100% { transform: rotate(-5deg); }
+  }
+  @keyframes leg-jump-right {
+    0% { transform: rotate(25deg); }
+    100% { transform: rotate(5deg); }
+  }
+
+
