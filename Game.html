@@ -103,3 +103,39 @@
     box-shadow: inset 0 5px 4px rgba(255,255,255,0.3);
   }
 
+.arm-left, .arm-right {
+    width: 12px;
+    height: 48px;
+    background: #f1c27d;
+    position: absolute;
+    top: 42px;
+    border-radius: 8px;
+    transform-origin: top center;
+  }
+  .arm-left {
+    left: 10px;
+    animation: arm-run 0.7s ease-in-out infinite;
+  }
+  .arm-right {
+    left: 48px;
+    animation: arm-run-rev 0.7s ease-in-out infinite;
+  }
+
+  
+  .leg-left, .leg-right {
+    width: 14px;
+    height: 60px;
+    background: #222;
+    position: absolute;
+    top: 95px;
+    border-radius: 10px;
+    transform-origin: top center;
+  }
+  .leg-left {
+    left: 12px;
+    animation: leg-run 0.7s ease-in-out infinite;
+  }
+  .leg-right {
+    left: 42px;
+    animation: leg-run-rev 0.7s ease-in-out infinite;
+  }
