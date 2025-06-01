@@ -1,0 +1,90 @@
+/* Arms */
+  .arm-left, .arm-right {
+    width: 12px;
+    height: 48px;
+    background: #f1c27d;
+    position: absolute;
+    top: 42px;
+    border-radius: 8px;
+    transform-origin: top center;
+  }
+  .arm-left {
+    left: 10px;
+    animation: arm-run 0.7s ease-in-out infinite;
+  }
+  .arm-right {
+    left: 48px;
+    animation: arm-run-rev 0.7s ease-in-out infinite;
+  }
+
+  /* Legs */
+  .leg-left, .leg-right {
+    width: 14px;
+    height: 60px;
+    background: #222;
+    position: absolute;
+    top: 95px;
+    border-radius: 10px;
+    transform-origin: top center;
+  }
+  .leg-left {
+    left: 12px;
+    animation: leg-run 0.7s ease-in-out infinite;
+  }
+  .leg-right {
+    left: 42px;
+    animation: leg-run-rev 0.7s ease-in-out infinite;
+  }
+
+  /* Running animation for limbs */
+  @keyframes arm-run {
+    0% { transform: rotate(30deg); }
+    50% { transform: rotate(-30deg); }
+    100% { transform: rotate(30deg); }
+  }
+  @keyframes arm-run-rev {
+    0% { transform: rotate(-30deg); }
+    50% { transform: rotate(30deg); }
+    100% { transform: rotate(-30deg); }
+  }
+  @keyframes leg-run {
+    0% { transform: rotate(-25deg); }
+    50% { transform: rotate(25deg); }
+    100% { transform: rotate(-25deg); }
+  }
+  @keyframes leg-run-rev {
+    0% { transform: rotate(25deg); }
+    50% { transform: rotate(-25deg); }
+    100% { transform: rotate(25deg); }
+  }
+
+  /* Jumping state - arms and legs rotate a bit differently and man moves up */
+  #man.jump .arm-left {
+    animation: arm-jump-left 0.7s forwards;
+  }
+  #man.jump .arm-right {
+    animation: arm-jump-right 0.7s forwards;
+  }
+  #man.jump .leg-left {
+    animation: leg-jump-left 0.7s forwards;
+  }
+  #man.jump .leg-right {
+    animation: leg-jump-right 0.7s forwards;
+  }
+
+  @keyframes arm-jump-left {
+    0% { transform: rotate(30deg); }
+    100% { transform: rotate(55deg); }
+  }
+  @keyframes arm-jump-right {
+    0% { transform: rotate(-30deg); }
+    100% { transform: rotate(-55deg); }
+OB  }
+  @keyframes leg-jump-left {
+OB    0% { transform: rotate(-25deg); }
+    100% { transform: rotate(-5deg); }
+  }
+OB  @keyframes leg-jump-right {
+    0% { transform: rotate(25deg); }
+OB    100% { transform: rotate(5deg); }
+  }
