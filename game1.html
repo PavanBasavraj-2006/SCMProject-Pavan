@@ -1,0 +1,80 @@
+#instructions h2 {
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  /* Footstep dust particles container */
+  #dust-container {
+    position: absolute;
+    bottom: 150px;
+    left: 0;
+    width: 100vw;
+    height: 130px;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 18;
+  }
+
+  .dust {
+    position: absolute;
+    bottom: 10px;
+    width: 8px;
+    height: 8px;
+    background: rgba(200, 200, 200, 0.7);
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: dust-fade 1s forwards;
+  }
+  @keyframes dust-fade {
+    0% {
+      opacity: 1;
+      transform: translateX(0) translateY(0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-10px) translateY(-15px) scale(1.5);
+    }
+  }
+
+</style>
+</head>
+<body>
+<div id="game-container" aria-label="Running Man Game" role="main">
+  <div id="scoreboard" aria-live="polite" aria-atomic="true">Score: 0</div>
+  <div id="instructions" role="region" aria-label="Game Instructions">
+    <h2>How to Play</h2>
+    <p>Press <strong>Space</strong> or <strong>Up Arrow</strong> to jump over obstacles.</p>
+    <p>Don't hit the obstacles, or it's game over!</p>
+    <p>Your score increases the longer you survive.</p>
+  </div>
+  <div id="man" aria-label="Running man character">
+    <div class="head"></div>
+    <div class="body"></div>
+    <div class="arm-left"></div>
+    <div class="arm-right"></div>
+    <div class="leg-left"></div>
+    <div class="leg-right"></div>
+  </div>
+  <div id="road" aria-hidden="true"></div>
+  <div id="obstacles" aria-live="polite" aria-atomic="true"></div>
+  <div id="dust-container" aria-hidden="true"></div>
+  <div id="game-over" role="alert" aria-hidden="true">
+    Game Over!<br />
+    <button id="restart-btn" aria-label="Restart game">Restart</button>
+  </div>
+</div>
+
+<script>
+  // Game constants
+  const MAN_WIDTH = 70;
+  const MAN_HEIGHT = 130;
+  const GROUND_Y = 150; // Distance from bottom where man and obstacles stand
+  const JUMP_HEIGHT = 150;
+  const JUMP_DURATION = 700; // ms
+  const OBSTACLE_SPEED_START = 3500; // ms to cross screen width
+  const OBSTACLE_INTERVAL_START = 2000; // ms between obstacles spawn
+  const OBSTACLE_SPEED_INCREMENT = 350; // speed increase per difficulty step
+  const OBSTACLE_INTERVAL_DECREMENT = 150;  // interval decrement per difficulty step
+  const DIFFICULTY_INTERVAL = 10000; // every 10 seconds, increase difficulty
+  const MAX_JUMP_HEIGHT = 160;
